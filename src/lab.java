@@ -1,7 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class lab {
@@ -96,8 +94,72 @@ public class lab {
 		 * the input list not divisible by 2, 3, or 5
 		 */
 		
-		List<Integer> numbers = Arrays.asList(1, 3, 4, 5, 7, 8, 10, 12, 14, 15, 16, 19, 21, 23, 24, 25, 26);
+		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 20, 25, 30);
+		
+		List<List<Integer>> sortedNumbers = divisibleBy235(numbers);
+		
+		System.out.println("========================");
+		for (List<Integer> list : sortedNumbers) {
+			for (Integer number : list) {
+				System.out.print(number + " ");
+			}
+			System.out.println();
+			System.out.println("========================");
+			System.out.println();
+		}
+		
+		/*
+		 *  write and test a method that takes a list of strings and returns a list of integers that contains the
+		 *  length of each string
+		 */
+		
+		List<Integer> lengthsList = lengthOfStrings(strings);
+		for (int length : lengthsList) {
+			System.out.print(length + " ");
+		}
+		
+		/*
+		 *  create a set of strings and add 5 values
+		 */
 
+	}
+	
+	public static List<Integer> lengthOfStrings(List<String> list) {
+		
+		List<Integer> lengths = new ArrayList<Integer>();
+		
+		for (String string : list) {
+			lengths.add(string.length() );
+		}
+		
+		return lengths;
+	}
+	
+	public static List<List<Integer>> divisibleBy235(List<Integer> list) {
+		List<List<Integer>> divisLists = new ArrayList<List<Integer>>();
+		
+		divisLists.add(new ArrayList<Integer>() );
+		divisLists.add(new ArrayList<Integer>() );
+		divisLists.add(new ArrayList<Integer>() );
+		divisLists.add(new ArrayList<Integer>() );
+		
+		// use if and not else if b/c some numbers fall into multiple lists
+		for (int number : list) {
+			if (number % 2 == 0) {
+				divisLists.get(0).add(number);
+			}
+			if (number % 3 == 0) {
+				divisLists.get(1).add(number);
+			}
+			if (number % 5 == 0) {
+				divisLists.get(2).add(number);
+			}
+			if (number % 2 != 0 && number % 3 != 0 && number % 5 != 0){
+				divisLists.get(3).add(number);
+			}
+		}
+		
+		return divisLists;
 	}
 	
 	public static List<String> listSearch(List<String> list, String query) {
