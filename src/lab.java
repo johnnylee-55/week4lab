@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class lab {
 
@@ -58,7 +62,7 @@ public class lab {
 		 * write and test a method that takes a list of strings and returns the list
 		 * with the first and last element switched
 		 */
-		List<String> swapped = swapFirstLast(strings);
+		List<String> swapped = swapFirstLast(strings); // swapFirstLast permanently changes strings
 		for (String string : swapped) {
 			System.out.print(string + " ");
 		}
@@ -121,7 +125,112 @@ public class lab {
 		/*
 		 *  create a set of strings and add 5 values
 		 */
+		
+		Set<String> set = new HashSet<String>();
+		
+		set.add("Red");
+		set.add("Blue");
+		set.add("Green");
+		set.add("Yellow");
+		set.add("Purple");
+		set.add("Blurple");
+		
+		/*
+		 *  write and test a method that takes a set of strings and a character and returns a set of strings consisting of
+		 *  all the strings in the input set that start with the character parameter
+		 */
+		System.out.println();
+		
+		Set<String> results = startsWithLetter(set, 'B');
+		for (String string : results) {
+			System.out.print(string + " ");
+		}
+		
+		/*
+		 *  write and test a method that takes a set of strings and returns a list of the same strings
+		 */
+		System.out.println();
+		
+		List<String> newList = setToList(set);
+		for (String string : newList) {
+			System.out.print(string + " ");
+		}
+		
+		/*
+		 *  write and test a method that takes a set of integers and returns a new set of integers containing
+		 *  only even numbers from the original set 
+		 */
+		System.out.println();
+		Set<Integer> numberSet = new HashSet<Integer>();
+		numberSet.add(3);
+		numberSet.add(4);
+		numberSet.add(8);
+		numberSet.add(33);
+		
+		Set<Integer> evens = returnEvens(numberSet);
+		
+		for (Integer number : evens) {
+			System.out.print(number + " ");
+		}
+		
+		/*
+		 *  create a map of string and string and add 3 items to it where the key of each is a word and the value is
+		 *  the definition of the word
+		 */
+		System.out.println();
+		
+		Map<String, String> dictionary = new HashMap<String, String>();
+		
+		dictionary.put("amphibian", "an animal capable of living both on land and in water.");
+		dictionary.put("elastic", "easily resuming original size and shape after being stretched or otherwise deformed.");
+		dictionary.put("scholar", "a learned person.");
+		
+		/*
+		 *  write and test a method that takes a Map<String, String> and a string and returns the value for a key in
+		 *  the map that matches the string parameter (i.e. like a language dictionary lookup)
+		 */
+		
+		definitionLookup(dictionary, "elastic");
 
+	}
+	
+	public static String definitionLookup(Map<String, String> map, String string) {
+		
+		
+		return string;
+	}
+	
+	public static Set<Integer> returnEvens(Set<Integer> set) {
+		Set<Integer> results = new HashSet<Integer>();
+		
+		for (int number : set) {
+			if (number % 2 == 0) {
+				results.add(number);
+			}
+		}
+		return results;
+	}
+	
+	public static List<String> setToList(Set<String> set) {
+		List<String> list = new ArrayList<String>();
+		
+		for (String string : set) {
+			list.add(string);
+		}
+		
+		return list;
+	}
+	
+	public static Set<String> startsWithLetter(Set<String> set, char chr) {
+		
+		Set<String> results = new HashSet<String>();
+		
+		for (String string : set) {
+			if (string.charAt(0) == (chr)) {
+				results.add(string);
+			}
+		}
+		return results;
 	}
 	
 	public static List<Integer> lengthOfStrings(List<String> list) {
